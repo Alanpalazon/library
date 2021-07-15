@@ -1,0 +1,30 @@
+header{
+    border: 1px solid black;
+}
+
+#container{
+    border: 1px solid red;
+}
+
+#form-container{
+    border: 1px solid blue;
+    display: flex;
+}
+
+form{
+    border: 1px solid pink;
+    display: flex;
+}
+
+label{
+    display: block;
+}
+
+#add-book-container{
+    border: 1px solid green;
+}
+
+#add-book-input{
+    display: block;
+}
+
