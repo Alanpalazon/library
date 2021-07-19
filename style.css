@@ -1,30 +1,130 @@
-header{
-    border: 1px solid black;
-}
-
 #container{
     border: 1px solid red;
+    height: 95%;
+    width: 90%;
+    margin: 1% auto;
+}
+
+header{
+    border: 1px solid green;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 1% suto;
+}
+
+h1{
+    margin-bottom: 0;
+}
+
+main{
+    border: 1px solid purple;
+    margin: 1% 5%;
+    height: 85%;
+}
+
+#form-button-container{
+    border: 1px solid gold;
+    width: 98%;
+    margin: .5%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #form-container{
-    border: 1px solid blue;
-    display: flex;
+    width: 80%;
 }
 
 form{
     border: 1px solid pink;
+    width: 100%;
     display: flex;
+    /* justify-content: space-between; */
 }
 
-label{
-    display: block;
+.form-section{
+    border: 1px solid purple;
+    margin: 3px;
 }
 
-#add-book-container{
+#add-button{
+    height: 100%;
+    width: 92%;
+}
+
+.form-label{
+    margin: 3px;
+    border: 1px solid red;
+    width: 90%;
+}
+
+.form-input{
+    width: 90%;
+    margin: 3px;
+}
+
+
+#delete-container{
+    border: 1px solid black;   
+}
+
+#delete-button{
+    width: 80%;
+    height: 78%;
+   
+}
+
+#grid-container{
+    border: 1px solid maroon;
+    margin: 1% auto;
+    width: 80%;
+    height: 80%;
+}
+
+/* test book */
+
+#test-book{
+    border: 1px solid blue;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+   width: 15%;
+    margin: 1%;
+    text-align: center;
+}
+
+
+#section-1{
+    height: 85%;
+    border: 1px solid red;
+    width: 99%;
+}
+
+.section-1-child{
+    width: 60%;
+    border: 1px solid black;
+    height: 10%;
+    margin: 10% auto;
+}
+
+#section-2{
+    height: 12%;
     border: 1px solid green;
+    display: flex;
+    justify-items: flex-end;
+    width: 99%;
+
 }
 
-#add-book-input{
-    display: block;
+#delete-icon-container{
+    width: 20%;
+    height: 99%;
+    margin-left: 90%;
 }
 
+.delete-icon{
+    height: 100%;
+    width: 100%; 
+
+}
+/* test book end  */
