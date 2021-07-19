@@ -1,13 +1,11 @@
 let library = [];
 
-// functions
-    //constructor
 function book(title, author, pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
 }
-    //add
+
 function addBookToLibrary(e) {
     e.preventDefault();
     const bookTitle = document.getElementById("title-input").value;  console.log("Title:"  + bookTitle);
@@ -19,11 +17,30 @@ function addBookToLibrary(e) {
     document.getElementById("form").reset();
 }
 
+// function styleBooks(){}
 
-document.getElementById("add-button").addEventListener('click', addBookToLibrary);
+     //displayBooks
+// function displayBooks(){
+//     for(let i = 0; i<library.length; i++){/*call style function here*/}
+// }
+
     //deleteBook
-    //deleteAllBooks
-    //displayBooks
+// function deleteBook(){
+//     //give all books and their delete icons the same  class (book title)
+//     //when delete icon clicked delete book that has the same class as the clicked icon 
+// }
+
+
+function deleteAll(){
+    library = [];
+    const gridContainer = document.getElementById("grid-container");
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+
+}
     //UpdateBookInfo
     //readStatus
 
+    document.getElementById("add-button").addEventListener('click', addBookToLibrary);
+    document.getElementById("delete-button").addEventListener('click', deleteAll);
