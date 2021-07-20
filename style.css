@@ -100,6 +100,7 @@ form{
     padding: 1px 1px 0 1px;;
     display: flex;
     flex-direction: column;
+    border: 1px solid green;
 }
 
 .section-1-cont{
@@ -133,6 +134,7 @@ form{
     margin-top: 3%;
     display: flex;
     justify-content: space-around;
+    border: 1px solid blue;
 }
 
 .update-container{
