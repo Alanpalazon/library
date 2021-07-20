@@ -42,17 +42,31 @@
                 <div id = "delete-container"><button id = "delete-button">DELETE ALL</button></div>
             </div>
             <div id = "grid-container">
-                <div id = "test-book">
-                    <div id = "section-1">
-                        <h3 class = "section-1-child">Title</h3>
-                        <p class = "section-1-child">Author</p>
-                        <p class = "section-1-child">Pages</p>
-                        <p class = "section-1-child">Read</p>
+                <div class = "book The-Lord-of-The-Rings">
+                    <div class = "book-section-1">
+                        <div class = " section-1-cont title-div">
+                            <h3 class = " section-1-child book-title" contenteditable="true">The Lord Of The Rings</h3>
+                        </div>
+                        <div class = "section-1-cont author-div">
+                            <span class = "section-1-child book-author" >Author:</span>
+                            <span class = "section-1-child author" contenteditable="true">JRR. Tolkein</span>
+                        </div>
+                        <div class = " section-1-cont pages-div">
+                            <span class = "section-1-child book-pages" >Pages: </span>
+                            <span class = "section-1-child pages" contenteditable="true">500</span>
+                        </div>
+                        <div class="section-1-cont read-div">
+                            <span class=" section-1-child book-read" >Read:</span>
+                            <span class=" section-1-child read" contenteditable="true">Yes</span>
+                        </div>
                     </div>
-                    <div id = "section-2">
-                        <div id = "delete-icon-container">
-                            <img class="delete-icon" src="images/delete.svg" alt="a delete button icon">
-                        </div> <!--Id to number using js-->
+                    <div class = "book-section-2">
+                        <div class= " update-container">
+                            <button class = "update-button">Update</button>
+                        </div> 
+                        <div class= " delete-icon-container">
+                            <img class=" delete-icon The Lord of The Rings" src="images/delete.svg" alt="a delete button icon">
+                        </div> 
                     </div>
                    
                 </div>
