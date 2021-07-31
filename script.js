@@ -8,56 +8,61 @@ function book(title, author, pages){
 }
 //working
 function createBookElements(){ 
-         const book = document.createElement('div');
-         book.classList.add('book');
-         book.classList.add(`${library.length}`);
-         const bSect1 = document.createElement('div');
-         bSect1.classList.add('book-section-1');
-         const title = document.createElement('h3');
-         title.classList.add('book-title');
-         title.textContent = inputs[0].value;
-         title.setAttribute('contenteditable', 'true');
-         bSect1.appendChild(title);
-         const author = document.createElement('span');
-         author.classList.add("book-author");
-         author.textContent = "Author";
-         const authorName = document.createElement('span');
-         authorName.classList.add("author");
-         authorName.textContent = inputs[1].value;
-         authorName.setAttribute('contenteditable', 'true');
-         bSect1.appendChild(author);
-         bSect1.appendChild(authorName);
-         const pages = document.createElement('span');
-         pages.classList.add("book-pages");
-         pages.textContent = "Pages";
-         const pagesNumber = document.createElement('span');
-         pagesNumber.classList.add("pages");
-         pagesNumber.textContent = inputs[2].value;
-         pagesNumber.setAttribute('contenteditable', 'true');
-         bSect1.appendChild(pages);
-         bSect1.appendChild(pagesNumber);
-         const read = document.createElement('span');
-         read.classList.add("book-read");
-         read.textContent = "Read"
-         const readYesNo = document.createElement('span');
-         readYesNo.classList.add("read");
-         if(library[library.length-1].read == "Read"){ readYesNo.textContent = "Yes"} else readYesNo.textContent = "No";
-         readYesNo.setAttribute('contenteditable', 'true');
-         bSect1.appendChild(read);
-         bSect1.appendChild(readYesNo);
-         const bSect2 = document.createElement('div');
-         bSect2.classList.add("book-section-2");
-         const update = document.createElement('button');
-         update.classList.add("update-button");
-         update.innerHTML = "Update";
-         const deleteIcon = document.createElement('img');
-         deleteIcon.classList.add("delete-icon", `${library.length}`);
-         deleteIcon.setAttribute('src', 'images/delete.svg');
-         bSect2.appendChild(update);
-         bSect2.appendChild(deleteIcon);
-         book.appendChild(bSect1);
-         book.appendChild(bSect2); 
-         return book;    
+    //book container
+    const book = document.createElement('div'); book.classList.add('book', `${library.length}`);
+    //book section 1 
+    const bSect1 = document.createElement('div');
+    bSect1.classList.add('book-section-1');
+        //title elements 
+    const title = document.createElement('h3'); 
+    title.classList.add('book-title');
+    title.textContent = inputs[0].value;
+    title.setAttribute('contenteditable', 'true');
+    bSect1.appendChild(title);
+        //author elements
+    const author = document.createElement('span');
+    author.classList.add("book-author");
+    author.textContent = "Author";
+    const authorName = document.createElement('span');
+    authorName.classList.add("author");
+    authorName.textContent = inputs[1].value;
+    bSect1.appendChild(author); 
+    bSect1.appendChild(authorName); 
+        //pages elements 
+    const pages = document.createElement('span');
+    pages.classList.add("book-pages"); 
+    pages.textContent = "Pages";
+    const pagesNumber = document.createElement('span');
+    pagesNumber.classList.add("pages");
+    pagesNumber.textContent = inputs[2].value; 
+    bSect1.appendChild(pages); 
+    bSect1.appendChild(pagesNumber);
+        //read elements 
+    const read = document.createElement('span'); 
+    read.classList.add("book-read");
+    read.textContent = "Read"; 
+    const readYesNo = document.createElement('span');
+    readYesNo.classList.add("read");
+    if(library[library.length-1].read == "Read"){ readYesNo.textContent = "Yes"} else readYesNo.textContent = "No";
+    bSect1.appendChild(read);
+    bSect1.appendChild(readYesNo); 
+    //section 2 
+    const bSect2 = document.createElement('div');
+    bSect2.classList.add("book-section-2"); 
+        //update button 
+    const update = document.createElement('button');
+    update.classList.add("update-button");  
+    update.innerHTML = "Update";
+        //delete button 
+    const deleteIcon = document.createElement('img'); 
+    deleteIcon.classList.add("delete-icon", `${library.length}`);
+    deleteIcon.setAttribute('src', 'images/delete.svg'); 
+    bSect2.appendChild(update);
+    bSect2.appendChild(deleteIcon); 
+    //append sections to book`
+    book.appendChild(bSect1); 
+    book.appendChild(bSect2); 
+    return book;    
 }
 
 //working
@@ -68,29 +73,17 @@ function addBookToLibrary() {
     return;
 }
 
-//fix non-clickable eitable conent when empty 
-//clean up html by removing unnecessary divs 
-
-function displayBooks(){
-    const gridContainer = document.getElementById("grid-container");
-    for(let i = 0; i<library.length; i++){
-        //createBookElements - fix to add text content
-        gridContainer.appendChild(createBookElements());
-    } 
- return;
-}    
-
 
 //UpdateBookInfo()
 
 
 //working
 function clearLibrary(){
+    library = [];
     const gridContainer = document.getElementById("grid-container");
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
-    return;
 }
 
 
@@ -111,19 +104,22 @@ document.getElementById("add-button").addEventListener('click', function(e){
 });
 
 //working
-document.getElementById("delete-button").addEventListener('click', function(){
-    library = [];
-    clearLibrary();
-});
+document.getElementById("delete-button").addEventListener('click', clearLibrary);
 
 // uses event bubbling: event handler attached to parent and applied to children which meet condition 
+
+
+//DELETES BOOK FROM ARRAY BUT NOT DOM
 document.querySelector('#grid-container').addEventListener('click', function (e) {
-    if (e.target.classList.contains('delete-icon')) {
-        let clickedIcon = e.target.getAttribute("class");//class system has errors - change!
-        let clickedIconClass = parseInt(clickedIcon[clickedIcon.length-1]);
-        library.splice([clickedIconClass-1],1);
-        clearLibrary();
-        displayBooks();
-        return;    
+    if (e.target.classList.contains('delete-icon')){
+        let delIcons = Array.from(document.querySelectorAll('.delete-icon'));
+        let books = Array.from(document.querySelectorAll('.book'));
+        for(let i = 0; i<library.length; i++){
+            if(library.indexOf(library[i]) == delIcons.indexOf(e.target)){
+                library.splice(library.indexOf(library[i], 1));
+                break;
+            }
+        }
     }
-  });
+    return;               
+});

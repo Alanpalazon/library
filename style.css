@@ -83,7 +83,7 @@ form{
 }
 
 /* test book */
-.book{
+.book, .example-book{
     border: 1px solid purple;
     width: 15%;
     height: 45%;
@@ -123,6 +123,7 @@ form{
     padding: 2px;
 }
 
+.demo-del-icon,
 .delete-icon{
     height: 50%;
 }
