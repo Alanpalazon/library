@@ -17,18 +17,18 @@
         <main id = "main">
             <div id = "form-button-container">
                 <div id = "form-container">
-                    <form id = "form">
+                    <form id = "form" name = "myForm">
                         <div class = "form-section" id = "title-section">
                             <label class = "form-label" id ="title-label" for="title">Title</label>
-                            <input type="text" class = "form-input" id = "title-input" name = "title" required>
+                            <input type="text" class = "form-input form-input-required" id = "title-input" name = "title" required>
                         </div>
                         <div class = "form-section l-section" id = "author-section">
                             <label class = "form-label" id ="author-label" for="author">Author</label>
-                            <input type="text" class = "form-input" id = "author-input" name = "author" required>
+                            <input type="text" class = "form-input form-input-required" id = "author-input" name = "author" required>
                         </div>
                         <div class = "form-section l-section" id = "pages-section">
                             <label class = "form-label" id ="pages-label" for="pages">Pages</label>
-                            <input type="text" class = "form-input" id = "pages-input" name = "pages" required>
+                            <input type="number"  min = "1" step = "1" class = "form-input form-input-required" id = "pages-input" name = "pages" required>
                         </div>
                         <div class = "form-section" id = "read-section">
                             <label class = "form-label" id ="read-label" for="read">Read</label>
@@ -42,35 +42,21 @@
                 <div id = "delete-container"><button id = "delete-button">DELETE ALL</button></div>
             </div>
             <div id = "grid-container">
-                <div class = "book The-Lord-of-The-Rings">
+                <div class = "book">
                     <div class = "book-section-1">
-                        <div class = " section-1-cont title-div">
-                            <h3 class = " section-1-child book-title" contenteditable="true">The Lord Of The Rings</h3>
-                        </div>
-                        <div class = "section-1-cont author-div">
-                            <span class = "section-1-child book-author" >Author:</span>
-                            <span class = "section-1-child author" contenteditable="true">JRR. Tolkein</span>
-                        </div>
-                        <div class = " section-1-cont pages-div">
-                            <span class = "section-1-child book-pages" >Pages: </span>
-                            <span class = "section-1-child pages" contenteditable="true">500</span>
-                        </div>
-                        <div class="section-1-cont read-div">
-                            <span class=" section-1-child book-read" >Read:</span>
-                            <span class=" section-1-child read" contenteditable="true">Yes</span>
-                        </div>
+                         <h3 class = " book-title" contenteditable="true">The Lord Of The Rings</h3>
+                         <span class = "book-author" >Author</span>
+                         <span class = "author" contenteditable="true">JRR. Tolkein</span>
+                         <span class = "book-pages" >Pages</span>
+                         <span class = "pages" contenteditable="true">500</span>
+                         <span class=" book-read" >Read</span>
+                         <span class=" read" contenteditable="true">Yes</span>
                     </div>
                     <div class = "book-section-2">
-                        <div class= " update-container">
-                            <button class = "update-button">Update</button>
-                        </div> 
-                        <div class= " delete-icon-container">
-                            <img class=" delete-icon The Lord of The Rings" src="images/delete.svg" alt="a delete button icon">
-                        </div> 
+                        <button class = "update-button">Update</button>
+                        <img class="delete-icon" src="images/delete.svg" alt="a delete button icon">
                     </div>
-                   
                 </div>
-
             </div>
         </main>
         <footer id = "footer"></footer>

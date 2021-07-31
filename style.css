@@ -79,6 +79,7 @@ form{
     margin: 1% auto;
     width: 80%;
     height: 80%;
+    display: flex;
 }
 
 /* test book */
@@ -100,26 +101,6 @@ form{
     padding: 1px 1px 0 1px;;
     display: flex;
     flex-direction: column;
-    border: 1px solid green;
-}
-
-.section-1-cont{
-    border-bottom: 1px solid purple;
-    width: 95%;
-    padding: 1px;
-}
-
-
-.title-div{
-    margin: 2% 0.5%;
-    border: none;
-    text-align: center;
-}
-
-.author-div,
-.pages-div,
-.read-div{
-    margin: 4% 0.5%;
 }
 
 .book-pages,
@@ -134,30 +115,16 @@ form{
     margin-top: 3%;
     display: flex;
     justify-content: space-around;
-    border: 1px solid blue;
-}
-
-.update-container{
-    width: 30%;
-    height: 65%;
-    align-self: flex-end;
 }
 
 .update-button{
-    width: 100%;
-    height: 100%;
+    width: 35%;
+    height: 65%;
     padding: 2px;
 }
 
-.delete-icon-container{
-    width: 30%;
-    height: 60%;
-    align-self: flex-end;;
-    text-align: end;
-}
-
 .delete-icon{
-    height: 90%;
+    height: 50%;
 }
 
 /* test book end  */
