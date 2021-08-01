@@ -97,7 +97,7 @@ button, .book, main{
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 
@@ -164,6 +164,10 @@ img:hover{
     form {
       flex-direction: column;
       margin: 2% 0 2% 15%;
+    }
+
+    #grid-container{
+        justify-content: center;
     }
 
      #form-button-container {
