@@ -128,8 +128,6 @@ function addBook(e){
     }
 }
 
-
-
 document.getElementById("add-button").addEventListener('click', addBook);
 document.getElementById("delete-button").addEventListener('click', clearLibrary);
 document.querySelector('#grid-container').addEventListener('click', deleteBook);
