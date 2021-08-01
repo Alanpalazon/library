@@ -6,7 +6,7 @@ function book(title, author, pages){
     this.author = author;
     this.pages = pages;
 }
-//working
+
 function createBookElements(){ 
     //book container
     const book = document.createElement('div'); book.classList.add('book', `${library.length}`);
@@ -65,7 +65,6 @@ function createBookElements(){
     return book;    
 }
 
-//working
 function addBookToLibrary() { 
     const newBook = new book(inputs[0].value, inputs[1].value , inputs[2].value);
     if(document.getElementById("read-input").checked){ newBook.read = "Read";} else newBook.read = "Not read";
@@ -76,8 +75,26 @@ function addBookToLibrary() {
 
 //UpdateBookInfo()
 
+function deleteBook(e){
+    if (e.target.classList.contains('delete-icon')){
+        let delIcons = Array.from(document.querySelectorAll('.delete-icon'));
+        for(let i = 0; i<library.length; i++){
+            if(library.indexOf(library[i]) == delIcons.indexOf(e.target)){
+                library.splice(library.indexOf(library[i], 1));
+                break;
+            }
+        }
+        let books = document.querySelectorAll('.book');
+        for(let j = 0; j<books.length; j++){
+            if(books[j].classList[1] == e.target.classList[1]){
+                document.querySelector("#grid-container").removeChild(books[j]);
+                break;
+            }
+        }
+    }
+    return;               
+}
 
-//working
 function clearLibrary(){
     library = [];
     const gridContainer = document.getElementById("grid-container");
@@ -86,9 +103,7 @@ function clearLibrary(){
     }
 }
 
-
-//working
-document.getElementById("add-button").addEventListener('click', function(e){
+function addBook(e){
     if(inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "" || inputs[2].value.includes(".")) return;
     else{
         addBookToLibrary();
@@ -101,25 +116,10 @@ document.getElementById("add-button").addEventListener('click', function(e){
         document.getElementById("form").reset();
         return;
     }
-});
+}
 
-//working
+
+
+document.getElementById("add-button").addEventListener('click', addBook);
 document.getElementById("delete-button").addEventListener('click', clearLibrary);
-
-// uses event bubbling: event handler attached to parent and applied to children which meet condition 
-
-
-//DELETES BOOK FROM ARRAY BUT NOT DOM
-document.querySelector('#grid-container').addEventListener('click', function (e) {
-    if (e.target.classList.contains('delete-icon')){
-        let delIcons = Array.from(document.querySelectorAll('.delete-icon'));
-        let books = Array.from(document.querySelectorAll('.book'));
-        for(let i = 0; i<library.length; i++){
-            if(library.indexOf(library[i]) == delIcons.indexOf(e.target)){
-                library.splice(library.indexOf(library[i], 1));
-                break;
-            }
-        }
-    }
-    return;               
-});
+document.querySelector('#grid-container').addEventListener('click', deleteBook);
