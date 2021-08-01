@@ -42,7 +42,7 @@ function createBookElements(){
     read.classList.add("book-read");
     read.textContent = "Read"; 
     const readYesNo = document.createElement('span');
-    readYesNo.classList.add("read");
+    readYesNo.classList.add("read",`${library.length}`);
     if(library[library.length-1].read == "Read"){ readYesNo.textContent = "Yes"} else readYesNo.textContent = "No";
     bSect1.appendChild(read);
     bSect1.appendChild(readYesNo); 
@@ -51,7 +51,7 @@ function createBookElements(){
     bSect2.classList.add("book-section-2"); 
         //update button 
     const update = document.createElement('button');
-    update.classList.add("update-button");  
+    update.classList.add("update-button", `${library.length}`);  
     update.innerHTML = "Update";
         //delete button 
     const deleteIcon = document.createElement('img'); 
@@ -73,7 +73,17 @@ function addBookToLibrary() {
 }
 
 
-//UpdateBookInfo()
+function updateBook(e){
+    if(e.target.classList.contains("update-button")){
+        let read = document.querySelectorAll('.read');
+        for(let i = 0; i < read.length; i++){
+            if(read[i].classList[1] == e.target.classList[1]){
+                if(read[i].textContent == "Yes"){read[i].textContent = "No";}
+                else read[i].textContent = "Yes"
+            }
+        }
+    }
+}
 
 function deleteBook(e){
     if (e.target.classList.contains('delete-icon')){
@@ -123,3 +133,4 @@ function addBook(e){
 document.getElementById("add-button").addEventListener('click', addBook);
 document.getElementById("delete-button").addEventListener('click', clearLibrary);
 document.querySelector('#grid-container').addEventListener('click', deleteBook);
+document.querySelector('#grid-container').addEventListener('click', updateBook);
